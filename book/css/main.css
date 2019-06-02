@@ -1,0 +1,85 @@
+.button{
+ text-decoration:none; 
+ text-align:center; 
+ padding:9px 57px; 
+ border:solid 1px #004F72; 
+ -webkit-border-radius:4px;
+ -moz-border-radius:4px; 
+ border-radius: 4px; 
+ font:18px Arial, Helvetica, sans-serif; 
+ font-weight:bold; 
+ color:#E5FFFF; 
+ background-color:#69a4b8; 
+ width: 250px;
+ height: 40px;
+ margin: 10px 0 10px 0
+  }
+
+ .main_div{
+ 	height: 150px;
+ 	border: 2px solid grey;
+ 	margin: 0 5% 0 5%; 
+ }
+ .image{
+ 	height: 140px;
+ 	max-width:180px; 
+ 	margin-top:5px;
+ 	margin-left:10px;
+ }
+
+#app{
+	margin-top:50px;
+}
+
+
+
+ .modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+    pointer-events: none;
+
+}
+
+.modalDialog:target {
+    display: block;
+    pointer-events: auto;
+}
+
+.hidden{
+	display:none;
+}
+ 
+.modalDialog > div {
+    width: 510px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    background: #fff;
+    border: 2px solid grey;
+}
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+ 
+.close:hover { background: #00d9ff; }

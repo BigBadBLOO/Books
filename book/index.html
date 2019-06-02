@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Книжная полка</title>
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/vue.js"></script>
+	
+</head>
+<body>
+
+	<h1 style="margin-left: 10%;">Книжная полка</h1>
+	<a style="margin-left: 10%;" class="button" href="#addbook">Добавить книгу</a>
+	
+	<div id="app">
+		<!-- отображение списка книг -->
+	      <div class="main_div" v-for="(book, index) in books">
+	      	<div style='height: 150px;width: 20%; float:left;'>
+	      		<img class="image" v-bind:src="book.image_url" alt="book_image">
+	      	</div>
+	      	<div style='height: 150px;width: 50%; float:left;'>
+	      		<h1>{{ book.title }} </h1>
+	      		<h3>{{ book.author }} </h3>
+	      		<h3>{{ book.year }} </h3>
+	      	</div>
+      		<div style='height: 110px;width: 25%; float:left; margin-top: 40px'>
+      			<a  class="button" v-bind:href="'#book_'+index">Редактировать</a>
+      			<!-- <button class=" button" v-on:click="books.splice(index, 1)">Редактировать</button> -->
+      			<button class=" button" v-on:click="books.splice(index, 1)">Удалить</button>
+      		</div>
+
+
+      		<!-- модальное окно для редактирования -->
+			<div v-bind:id="'book_'+index" class="modalDialog">
+		    	<div>
+			        <a href="#close" title="Закрыть" class="close">X</a>
+			        <h2>Редактирование книги</h2>
+			        <p>Наименование</p>
+			        <input v-bind:id="'id_title_'+ index" type="text"  v-bind:value="book.title"required/>
+			        <p>Автор</p>
+			        <input v-bind:id="'id_author_'+ index +''" type="text" v-bind:value="book.author"/>
+			        <p>Год выпуска</p>
+			        <input v-bind:id="'id_year_'+ index +''" type="number" min="1" max="2017"  v-bind:value="book.year"/>
+			        <p v-bind:id="'error_'+index" class='hidden' style="color: red">Введите дату до 2017г</p>
+					<p>Изображение</p>
+					<input v-bind:id="'id_url_'+ index +''" type="text"   v-bind:value="book.image_url"/>
+					<p>
+						<button class=" button" v-on:click="updateBook(index)">Сохранить</button>
+						<a class="button" href="#close" title="Закрыть" >Отменить</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- модальное окно для добавления новой книги -->
+	<div id="addbook" class="modalDialog">
+	    	<div>
+		        <a href="#close" title="Закрыть" class="close">X</a>
+		        <h2>Добавление книги</h2>
+		        <p>Наименование</p>
+		        <input id="add_title" type="text" v-model="newBook.title" />
+		        <p>Автор</p>
+		        <input id="add_author" type="text" v-model="newBook.author" />
+		        <p>Год выпуска</p>
+		        <input type="number" min="1" max="2017" v-model="newBook.year" />
+		        <p id="error" class='hidden' style="color: red">Введите дату до 2017г</p>
+				<p>Изображение</p>
+				<input type="text" v-model="newBook.image_url" />
+				<p>
+			        <button class="button" v-on:click="addBook()">Сохранить</button>
+			        <a class="button" href="#close" title="Закрыть" >Отменить</a>
+			    </p>
+			  
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+	<script src="js/main.js"></script>
+</body>
+</html>
